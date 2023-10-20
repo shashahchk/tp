@@ -87,7 +87,10 @@ public interface InternshipModel {
 
     /**
      * Updates the filter of the filtered internship list to filter by the given {@code predicate}.
+     *
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredInternshipList(Predicate<Internship> predicate);
+    default void updateFilteredInternshipList(Predicate<Internship> predicate) {
+
+    }
 }

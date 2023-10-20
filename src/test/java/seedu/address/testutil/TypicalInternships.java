@@ -50,6 +50,6 @@ public class TypicalInternships {
     }
 
     public static List<Internship> getTypicalInternships() {
-        return new ArrayList<>(Arrays.asList(OPTIVER, CITADEL));
+        return new ArrayList<>(Arrays.asList(JANESTREET, OPTIVER, CITADEL, GOVTECH));
     }
 }

@@ -7,7 +7,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents an Internship's duration in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidDuration(String)}
  */
-public class Duration {
+public class Duration implements Comparable<Duration>{
 
     public static final String MESSAGE_CONSTRAINTS =
             "Internship durations should only contain positive numbers representing months and should not be blank";
@@ -55,5 +55,10 @@ public class Duration {
     @Override
     public int hashCode() {
         return this.duration.hashCode();
+    }
+
+    @Override
+    public int compareTo(Duration o) {
+        return Integer.compare(Integer.parseInt(this.duration), Integer.parseInt(o.duration));
     }
 }
