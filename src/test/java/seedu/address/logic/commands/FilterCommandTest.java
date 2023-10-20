@@ -22,7 +22,7 @@ import seedu.address.model.InternshipModel;
 import seedu.address.model.InternshipModelManager;
 import seedu.address.model.InternshipUserPrefs;
 import seedu.address.model.internship.Duration;
-import seedu.address.model.internship.DurationWithinPredicate;
+import seedu.address.model.internship.DurationWithinRangePredicate;
 
 /**
  * Contains integration tests (interaction with the InternshipModel) for {@code FilterCommand}.
@@ -38,8 +38,8 @@ public class FilterCommandTest {
         List<Duration> firstRange = Arrays.asList(new Duration("1"), new Duration("5"));
         List<Duration> secondRange = Arrays.asList(new Duration("2"), new Duration("6"));
 
-        DurationWithinPredicate firstPredicate = new DurationWithinPredicate(firstRange);
-        DurationWithinPredicate secondPredicate = new DurationWithinPredicate(secondRange);
+        DurationWithinRangePredicate firstPredicate = new DurationWithinRangePredicate(firstRange);
+        DurationWithinRangePredicate secondPredicate = new DurationWithinRangePredicate(secondRange);
 
         FilterCommand filterFirstCommand = new FilterCommand(firstPredicate);
         FilterCommand filterSecondCommand = new FilterCommand(secondPredicate);
@@ -64,7 +64,7 @@ public class FilterCommandTest {
     @Test
     public void execute_oneRange_noInternshipFound() {
         String expectedMessage = String.format(MESSAGE_INTERNSHIPS_LISTED_OVERVIEW, 0);
-        DurationWithinPredicate predicate = preparePredicate("10-12");
+        DurationWithinRangePredicate predicate = preparePredicate("10-12");
         FilterCommand command = new FilterCommand(predicate);
         expectedInternshipModel.updateFilteredInternshipList(predicate);
         assertInternshipCommandSuccess(command, internshipModel, expectedMessage, expectedInternshipModel);
@@ -74,7 +74,7 @@ public class FilterCommandTest {
     @Test
     public void execute_oneRange_oneInternshipFound() {
         String expectedMessage = String.format(MESSAGE_INTERNSHIPS_LISTED_OVERVIEW, 1);
-        DurationWithinPredicate predicate = preparePredicate("1-2");
+        DurationWithinRangePredicate predicate = preparePredicate("1-2");
         FilterCommand command = new FilterCommand(predicate);
         expectedInternshipModel.updateFilteredInternshipList(predicate);
         assertInternshipCommandSuccess(command, internshipModel, expectedMessage, expectedInternshipModel);
@@ -83,7 +83,7 @@ public class FilterCommandTest {
     @Test
     public void execute_oneRange_multipleInternshipsFound() {
         String expectedMessage = String.format(MESSAGE_INTERNSHIPS_LISTED_OVERVIEW, 3);
-        DurationWithinPredicate predicate = preparePredicate("3-6");
+        DurationWithinRangePredicate predicate = preparePredicate("3-6");
         FilterCommand command = new FilterCommand(predicate);
         expectedInternshipModel.updateFilteredInternshipList(predicate);
         assertInternshipCommandSuccess(command, internshipModel, expectedMessage, expectedInternshipModel);
@@ -93,7 +93,7 @@ public class FilterCommandTest {
     @Test
     public void toStringMethod() {
         List<Duration> range = Arrays.asList(new Duration("6"), new Duration("12"));
-        DurationWithinPredicate predicate = new DurationWithinPredicate(range);
+        DurationWithinRangePredicate predicate = new DurationWithinRangePredicate(range);
         FilterCommand filterCommand = new FilterCommand(predicate);
         String expected = FilterCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
         assertEquals(expected, filterCommand.toString());
@@ -102,7 +102,7 @@ public class FilterCommandTest {
     /**
      * Parses {@code userInput} into a {@code DurationWithinPredicate}.
      */
-    private DurationWithinPredicate preparePredicate(String userInput) {
+    private DurationWithinRangePredicate preparePredicate(String userInput) {
         String[] durations = userInput.split("-");
 
         List<Duration> durationList = new ArrayList<>();
@@ -110,6 +110,6 @@ public class FilterCommandTest {
             durationList.add(new Duration(durationStr));
         }
 
-        return new DurationWithinPredicate(durationList);
+        return new DurationWithinRangePredicate(durationList);
     }
 }

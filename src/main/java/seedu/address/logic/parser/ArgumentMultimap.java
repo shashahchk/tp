@@ -75,4 +75,14 @@ public class ArgumentMultimap {
             throw new ParseException(Messages.getErrorMessageForDuplicatePrefixes(duplicatedPrefixes));
         }
     }
+
+    /**
+     * Returns true if only one prefix is present.
+     */
+    public boolean isOnlyOnePrefixPresent() {
+        long count = argMultimap.keySet().stream()
+                .filter(prefix -> !prefix.getPrefix().isEmpty())
+                .count();
+        return count == 1;
+    }
 }

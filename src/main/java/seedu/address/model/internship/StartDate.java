@@ -67,4 +67,8 @@ public class StartDate {
     public int hashCode() {
         return this.startDate.hashCode();
     }
+
+    public int compareTo(StartDate other) {
+        return this.startDate.compareTo(other.startDate);
+    }
 }

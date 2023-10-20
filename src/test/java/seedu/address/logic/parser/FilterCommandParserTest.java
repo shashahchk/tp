@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.model.internship.Duration;
-import seedu.address.model.internship.DurationWithinPredicate;
+import seedu.address.model.internship.DurationWithinRangePredicate;
 
 public class FilterCommandParserTest {
     private final FilterCommandParser parser = new FilterCommandParser();
@@ -35,7 +35,7 @@ public class FilterCommandParserTest {
         List<Duration> range = Arrays.asList(new Duration("6"), new Duration("12"));
 
         FilterCommand expectedFilterCommand =
-                new FilterCommand(new DurationWithinPredicate(range));
+                new FilterCommand(new DurationWithinRangePredicate(range));
         assertInternshipParseSuccess(parser, "6-12", expectedFilterCommand);
     }
 }

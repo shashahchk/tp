@@ -3,20 +3,23 @@ package seedu.address.logic.commands;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.InternshipModel;
-import seedu.address.model.internship.DurationWithinPredicate;
+import seedu.address.model.internship.Internship;
+
 
 import static java.util.Objects.requireNonNull;
+import java.util.function.Predicate;
 
 public class FilterCommand extends InternshipCommand {
     public static final String COMMAND_WORD = "filter";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters and outputs all internships of which duration"
-            + " lies in the range of the duration predicate" + "\n"
-            + "Example: " + COMMAND_WORD + " 1-6";
+    public static final String MESSAGE_USAGE = "filter: Filters the internship list. "
+            + "Parameters: PREFIX/KEYWORD [MORE_KEYWORDS]...\n"
+            + "Example: filter ro/ developer\n"
+            + "To reset filters: filter default";
 
-    private final DurationWithinPredicate predicate;
+    private final Predicate<Internship> predicate;
 
-    public FilterCommand(DurationWithinPredicate predicate) {
+    public FilterCommand(Predicate<Internship> predicate) {
         this.predicate = predicate;
     }
 

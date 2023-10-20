@@ -5,9 +5,9 @@ import seedu.address.commons.util.ToStringBuilder;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class DurationWithinPredicate implements Predicate<Internship> {
+public class DurationWithinRangePredicate implements Predicate<Internship> {
     private final List<Duration> durationRange;
-    public DurationWithinPredicate(List<Duration> durationRange) {
+    public DurationWithinRangePredicate(List<Duration> durationRange) {
         this.durationRange = durationRange;
     }
 
@@ -28,11 +28,11 @@ public class DurationWithinPredicate implements Predicate<Internship> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof DurationWithinPredicate)) {
+        if (!(other instanceof DurationWithinRangePredicate)) {
             return false;
         }
 
-        DurationWithinPredicate otherDurationWithinPredicate = (DurationWithinPredicate) other;
+        DurationWithinRangePredicate otherDurationWithinPredicate = (DurationWithinRangePredicate) other;
         return durationRange.equals(otherDurationWithinPredicate.durationRange);
     }
 
