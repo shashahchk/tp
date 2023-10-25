@@ -19,6 +19,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.InternshipBook;
 import seedu.address.model.InternshipModel;
 import seedu.address.model.Model;
+import seedu.address.model.internship.CompanyNameContainsKeywordsPredicate;
 import seedu.address.model.internship.Internship;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
@@ -200,7 +201,7 @@ public class CommandTestUtil {
         Internship internship = model.getFilteredInternshipList().get(targetIndex.getZeroBased());
         final String[] splitCompanyName = internship.getCompanyName().companyName.split("\\s+");;
 
-        model.updateFilteredInternshipList(new seedu.address.model.internship.NameContainsKeywordsPredicate(
+        model.updateFilteredInternshipList(new CompanyNameContainsKeywordsPredicate(
                 Arrays.asList(splitCompanyName[0])));
 
         assertEquals(1, model.getFilteredInternshipList().size());

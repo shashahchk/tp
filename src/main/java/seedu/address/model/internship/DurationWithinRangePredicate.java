@@ -1,9 +1,9 @@
 package seedu.address.model.internship;
 
-import seedu.address.commons.util.ToStringBuilder;
-
 import java.util.List;
 import java.util.function.Predicate;
+
+import seedu.address.commons.util.ToStringBuilder;
 
 public class DurationWithinRangePredicate implements Predicate<Internship> {
     private final List<Duration> durationRange;

@@ -31,7 +31,8 @@ public class ApplicationStatusContainsKeywordsPredicate implements Predicate<Int
             return false;
         }
 
-        ApplicationStatusContainsKeywordsPredicate otherApplicationStatusContainsKeywordsPredicate = (ApplicationStatusContainsKeywordsPredicate) other;
+        ApplicationStatusContainsKeywordsPredicate otherApplicationStatusContainsKeywordsPredicate =
+                (ApplicationStatusContainsKeywordsPredicate) other;
         return keywords.equals(otherApplicationStatusContainsKeywordsPredicate.keywords);
     }
 

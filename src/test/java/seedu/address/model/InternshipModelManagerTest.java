@@ -15,7 +15,7 @@ import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.internship.NameContainsKeywordsPredicate;
+import seedu.address.model.internship.CompanyNameContainsKeywordsPredicate;
 import seedu.address.testutil.InternshipBookBuilder;
 
 public class InternshipModelManagerTest {
@@ -121,7 +121,8 @@ public class InternshipModelManagerTest {
         // different filteredList -> returns false
 
         String[] keywords = JANESTREET.getCompanyName().companyName.split("\\s+");
-        internshipModelManager.updateFilteredInternshipList(new NameContainsKeywordsPredicate(Arrays.asList(keywords)));
+        internshipModelManager.updateFilteredInternshipList(new CompanyNameContainsKeywordsPredicate(
+                Arrays.asList(keywords)));
         assertFalse(internshipModelManager.equals(new InternshipModelManager(internshipBook, userPrefs)));
 
         // resets internshipModelManager to initial state for upcoming tests

@@ -8,7 +8,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.logic.commands.*;
+import seedu.address.logic.commands.CreateCommand;
+import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.FilterCommand;
+import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.InternshipCommand;
+import seedu.address.logic.commands.ModifyCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**

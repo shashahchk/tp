@@ -1,20 +1,24 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
+import java.util.function.Predicate;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.InternshipModel;
 import seedu.address.model.internship.Internship;
 
-
-import static java.util.Objects.requireNonNull;
-import java.util.function.Predicate;
-
+/**
+ * Filters for relevant internships by category.
+ */
 public class FilterCommand extends InternshipCommand {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = "filter: Filters the internship list. "
-            + "Parameters: PREFIX/KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: filter ro/ developer\n"
+            + "Parameters: PREFIX/KEYWORDS or PREFIX/X-Y for duration and start date\n"
+            + "Example: filter ro/developer\n"
+            + "Example: filter d/2-3\n"
             + "To reset filters: filter default";
 
     private final Predicate<Internship> predicate;

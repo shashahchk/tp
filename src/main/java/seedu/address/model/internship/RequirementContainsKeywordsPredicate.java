@@ -31,7 +31,8 @@ public class RequirementContainsKeywordsPredicate implements Predicate<Internshi
             return false;
         }
 
-        RequirementContainsKeywordsPredicate otherRequirementContainsKeywordsPredicate = (RequirementContainsKeywordsPredicate) other;
+        RequirementContainsKeywordsPredicate otherRequirementContainsKeywordsPredicate =
+                (RequirementContainsKeywordsPredicate) other;
         return keywords.equals(otherRequirementContainsKeywordsPredicate.keywords);
     }
 
