@@ -30,12 +30,11 @@ Flagship is a desktop application used to help aspiring students track internshi
     * Highlights: The displayed internship entries are neatly categorised with clear separation of different fields
     * (Pull requests [\#19](https://github.com/AY2324S1-CS2103T-W17-1/tp/pull/19), )
 
-* **New Feature**: Read command
-    * What it does: _**read**_ an internship in Flagship
-    * Justification: User needs to be able to retrieve internship entry easily
-    * Highlights: User can retrieve the internship entry conveniently with an index number
-    * (Pull requests [\#19](https://github.com/AY2324S1-CS2103T-W17-1/tp/pull/19), )
-
+* **New Feature**: Filter command
+    * What it does: Allows the user to input a category and filter the internship list.
+    * Justification: This feature improves the product because it allows the user to filter and see more relevant internships.
+    * Highlights: NIL
+    * (Pull requests [\#101](https://github.com/AY2324S1-CS2103T-W17-1/tp/pull/101), )
 
 * **Documentation**:
     * User Guide:
@@ -51,6 +50,8 @@ Flagship is a desktop application used to help aspiring students track internshi
     * PRs reviewed : 
       * [\#24](https://github.com/AY2324S1-CS2103T-W17-1/tp/pull/24)
       * [\#63](https://github.com/AY2324S1-CS2103T-W17-1/tp/pull/63)
+    * Contributed to forum discussions:
+      * [\#296](https://github.com/nus-cs2103-AY2324S1/forum/issues/296)
     * Contributed to task allocation discussions (examples: to be added soon)
     * Suggested the addition of new features (examples: to be added soon)
     * Reported bugs and suggestions for other teams in the class (examples: to be added soon)

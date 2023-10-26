@@ -369,6 +369,60 @@ The following sequence diagram shows how the sort operation works:
     * Pros: Will reduce the complexity of operations as operations do not need to sort after making changes to the internship list.
     * Cons: Will cause the updated list to be no longer sorted.
 
+### Filter feature
+
+### Filter Implementation
+
+The `filter` command is facilitated by  `InternshipLogicManager`. User input is first parsed by `InternshipBookParser#parseCommand()` and checked if it is a filter command with a valid format. Once the format is validated, the predicate required to filter the internships based on user criteria is generated.
+
+This predicate is then used to update the filtered internship list in the `InternshipModel`. The filtered list will only contain internships that satisfy the conditions specified by the user.
+
+The filter command is exposed in the InternshipModel interface as `InternshipModel#updateFilteredInternshipList`.
+
+Given below is an example usage scenario and how the filter command behaves at each step.
+
+Step 1. The user launches the application and already has a bunch of internships listed. 
+
+<puml src="diagrams/FilterCommandState0.puml" alt="FilterCommandState0" />
+
+<box type="info" seamless>
+
+**Note:** This diagram shows the high level diagram with the intermediate layers hidden. It is meant to show the order of the internships within the list.
+
+</box>
+
+Step 2.The user inputs `filter c/[COMPANY_NAME]` (in the format of [CATEGORY]/[KEYWORDS] for categories such as company name, role, application status, requirements) or `filter du/[DURATION_A]-[DURATION_B]` (in the format of [CATEGORY]/[KEYWORD]-[] for categories such as start date, duration, and deadline) and it is parsed by `InternshipBookParser` to verify that it has the valid format of a `sort` command.
+
+<puml src="diagrams/FilterCommandParse.puml" alt="FilterCommandParse" />
+
+<box type="info" seamless>
+
+**Note:** If the command does not follow the valid format of a `filter` command, a ParseException will be thrown if the
+command does not correspond to any possible command formats, and we will not proceed to step 3. If it corresponds to the
+format of another valid command (that is not `filter`), subsequent execution in step 3 will follow the logic flow of
+the other corresponding command.
+
+</box>
+
+Step 3. The `filter` command is executed. The predicate generated based on user criteria is used to filter internships in the `InternshipModel`.
+
+<puml src="diagrams/FilterCommandExecute.puml" alt="FilterCommandExecute" />
+<box type="info" seamless>
+
+**Note:** The filtered list in the `InternshipModel` is updated to only include internships that satisfy the conditions specified by the predicate.
+
+</box>
+
+#### Design considerations:
+**Aspect: How the filter conditions are specified:**
+
+* **Alternative 1 (current choice):** Use a predicate-based approach to allow flexible filtering criteria.
+    * Pros: Allows a dynamic and flexible way to filter internships based on various criteria.
+    * Cons: Might be more complex than a simpler, fixed-criteria approach.
+  
+* **Alternative 2:** Use a fixed set of filter criteria.
+    * Pros: Simpler to implement.
+    * Cons: Less flexible and might not cover all use cases or user needs.
 
 ### Modify feature
 

@@ -1,0 +1,25 @@
+@startuml
+!include style.puml
+skinparam ClassFontColor #000000
+skinparam ClassBorderColor #000000
+skinparam ClassBackgroundColor #FFFFAA
+
+title Filter Command Parsing Stage
+
+package "Internship Book" {
+    class InternshipBookParser as "InternshipBookParser"
+}
+
+package "Command" {
+    class FilterCommand as "FilterCommand"
+}
+
+InternshipBookParser -[hidden]right-> FilterCommand
+
+hide FilterCommand
+
+class UserInput as "User Input: filter c/Google"
+
+UserInput -down-> InternshipBookParser : parses
+
+@enduml
