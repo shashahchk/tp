@@ -4,7 +4,7 @@ skinparam ClassFontColor #000000
 skinparam ClassBorderColor #000000
 skinparam ClassBackgroundColor #FFFFAA
 
-title Filter Command Parsing Stage
+title Command Parsing Stage
 
 package "Internship Book" {
     class InternshipBookParser as "InternshipBookParser"
@@ -18,7 +18,7 @@ InternshipBookParser -[hidden]right-> FilterCommand
 
 hide FilterCommand
 
-class UserInput as "User Input: filter c/Google"
+class UserInput as "User Input: filter ro/Google"
 
 UserInput -down-> InternshipBookParser : parses
 

@@ -551,12 +551,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 * 1a. Command is of invalid format
     * 1a1. InternshipBook shows an error message.
-  
+
     Use case ends.
 
 * 3a. Command is of invalid format
     * 3a1. InternshipBook shows an error message.
-    
+
     Use case ends.
 
 **UC3: Edit an internship**
